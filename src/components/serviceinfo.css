@@ -1,0 +1,56 @@
+form{
+    width:50%;
+    margin-left:150px;
+}
+
+.buttonstyle{
+    margin-left:250px;
+    margin-top:20px;
+}
+
+.quality{
+    margin-left:30px;
+}
+
+.deliveryunit{
+    width:85%;
+    margin-left:30px;
+}
+
+.sname{
+    margin-top:30px;
+    margin-bottom:-20px;
+}
+
+.serviceInfo{
+    margin-left:500px;
+    align-content: center;
+}
+
+.mname{
+    margin-top:-30px;
+    margin-bottom:-20px;
+}
+
+.yearpick{
+    margin-top:-30px;
+    margin-left:30px;
+}
+
+.iconstyle{
+    margin-right:5px;
+    margin-left:-10px;
+    float:left;
+}
+
+.calendarstyle{
+    margin-left:-25px;
+    float:left;
+}
+
+.locstyle{
+        margin-right:5px;
+        
+        float:left;
+    }
+
