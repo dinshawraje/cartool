@@ -36,7 +36,8 @@ class Login extends Component{
             }
 
     handlePassword(password){
-        this.setState({
+        this.setState(
+            {
             password:password
         });
     }
@@ -69,7 +70,7 @@ class Login extends Component{
         </div>
     );
     }
-}
+}  
 
 
 function UserGreeting(props){

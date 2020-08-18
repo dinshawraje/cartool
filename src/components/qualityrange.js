@@ -1,17 +1,17 @@
 import React from "react";
 import { Range, getTrackBackground } from "react-range";
-
+// import DetailsForm from './details.js';
 const STEP = 0.1;
 const MIN = 0;
 const MAX = 100;
 
 class QualityRange extends React.Component {
   state = {
-    values: [50]
+    values: [95]
   };
   render() {
     return (
-      <div
+       <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -19,7 +19,8 @@ class QualityRange extends React.Component {
           margin: "1.5em"
         }}
       >
-        <Range
+            
+       <Range
           values={this.state.values}
           step={STEP}
           min={MIN}
@@ -87,5 +88,6 @@ class QualityRange extends React.Component {
     );
   }
 }
+
 
 export default QualityRange;
