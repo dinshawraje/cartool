@@ -5,48 +5,6 @@ import 'mdbreact/dist/css/mdb.css';
 import './serviceinfo.css';
 import YearPicker from "react-year-picker";
 import DetailsForm from './details.js';  
-// const duOptions = [
-//     {
-//       label: "UK",
-//       value: "1"
-//     },
-//     {
-//       label: "France",
-//       value: "2"
-//     },
-//     {
-//       label: "BPS",
-//       value: "3"
-//     },
-//     {
-//       label: "DSI",
-//       value: "4"
-//     },
-//     {
-//       label: "Germany",
-//       value: "5"
-//     }
-//   ];
-
-  //  const locationOptions = [ 
-  //    {
-  //      label:"Noida Site 1",
-  //      value: "1"
-  //     },
-  //    {
-  //     label:"Noida Site 3",
-  //     value:"2"
-  //    },
-  //    {
-  //      label:"UK",
-  //      value:"3"
-  //    },
-  //    {
-  //     label:"France",
-  //      value:"4"
-  //    }
-  //  ];
- 
 
 class ServiceInfo extends Component{
     constructor(props){
@@ -186,7 +144,7 @@ handleYearChange(date) {
          <MDBRow>
            <MDBCol>
           <form>
-            <p className="h4 text-center py-4">Provide the below details:</p>
+            <p className="h4">Provide the below details:</p>
             <div className="grey-text">
               <h4 className="quality">Quality Target</h4>
               <span className="iconstyle"><MDBIcon icon="bullseye" size="2x"/></span><QualityRange/>
@@ -225,11 +183,11 @@ handleYearChange(date) {
               />
              
               <div className="yearpick">
-              <h4>Year</h4>
+              <h4 className="yearhead">Year</h4>
               <span className="calendarstyle"><MDBIcon icon="calendar" size="x"/></span><YearPicker value={this.props.yearPicked} onChange={this.handleYearChange} />
               </div>
              
-              <h4 className="quality">Location</h4>
+              <h4 className="lochead">Location</h4>
               <span className="locstyle"><MDBIcon icon="globe" size="2x"/></span>
                 <select name="locationOptions" value={this.props.locationOptions} onChange={this.handleChange} className="css-location">
                 <option name="" value="">Select your location...</option>
@@ -273,7 +231,6 @@ handleYearChange(date) {
   }
   function DetailsForms(props){
     return <div>
-        <h3>Here are the details from service info form:-</h3>
         <DetailsForm yearPicked={props.yearPicked} duOptions={props.duOptions} locationOptions={props.locationOptions} serviceName = {props.serviceName} serviceManager={props.serviceManager} accountName={props.accountName} deliveryManager={props.deliveryManager}/>
     </div>
 }

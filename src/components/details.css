@@ -1,0 +1,17 @@
+.table-head{
+    text-align: center;
+    background-color: crimson;
+    width:100%;
+}
+
+table,tr,th,td{
+    border: 1px solid black;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:20px;
+}
+
+th{
+    background-color: mediumslateblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
