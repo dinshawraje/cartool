@@ -95,11 +95,11 @@ class DetailsForm extends Component{
             <tr>
                 <td>
                 Rational Subgrouping, segmentation should be done for selecting sample size for the incident/service Request review etc. For Example: Sample Size and Frequency = Subgrouping of Sample size is done on the basis of below 7 pts:
-                1. 100%= P1/P2 incidents (Frequency- Weekly)
-                2. 50% =  P3/P4  Incidents (Frequency- Weekly)
-                3. 100% = Problem Records (Frequency- As and when problem record is resolved)
-                5. 100% = CR(Frequency- As and when CR  is  received from SAFEMOVE)
-                6. 100% = Environment  Mgt (Frequency- As and when alerts
+                <br/>1. 100%= P1/P2 incidents (Frequency- Weekly)
+                <br/>2. 50% =  P3/P4  Incidents (Frequency- Weekly)
+                <br/>3. 100% = Problem Records (Frequency- As and when problem record is resolved)
+               <br/> 5. 100% = CR(Frequency- As and when CR  is  received from SAFEMOVE)
+               <br/> 6. 100% = Environment  Mgt (Frequency- As and when alerts
                 </td>
             </tr>
             </table>
@@ -163,7 +163,11 @@ class DetailsForm extends Component{
             </tr>
             <tr>
                 <td>
-                Step 1: Service Info- Updated and Review the 'Service Info' Sheet before updating all the fields as appropriate. The Defect, Defect Code and Weightage of the defects shall be updated in association of Service Manager of the account. It is mandatory for the account to get a final review of 'Service Info' sheet by DI  Spoc who shall update the review comments in the document control section of this CAR tool.Step 2: Review Sheet-The 'Reviewers / QC persons' of the account are only authorized to update the 'Reveiw Sheet'. The updation of the Review Sheet is the  next step after 'Service Info' is updated. Columns C to G, K and M to M should only be updated and rest of the columns should not be updated by 'Reviewers / QC persons'. Step 3: Review Report- The Review Report sheet is formula based and is taking inputs from Review Sheet. It is recommended that 'Reviewers / QC persons' validate the correctness of the available information but 'shall not' ' alter this sheet unless there is a specified requirement that is approved by DIA. Step 4: Dashboard- This sheet is a graphical presentation of the reports which can be used for analyzing the quality performance, defect Type trends, % Accuracy Trend, Agent wise defects , Weighted defect density trend ( monthly/weekly). The graph shall not be auto updated until the data source is selected appropriately.Step 5: RCA- The TOP 3 weighted defects will get auto-populated. It is essential that RCA ( Root Cause Analysis) is done against each defect and comments are updated on the monthly basis. 
+                Step 1: Service Info- Updated and Review the 'Service Info' Sheet before updating all the fields as appropriate. The Defect, Defect Code and Weightage of the defects shall be updated in association of Service Manager of the account. It is mandatory for the account to get a final review of 'Service Info' sheet by DI  Spoc who shall update the review comments in the document control section of this CAR tool.
+                <br/>Step 2: Review Sheet-The 'Reviewers / QC persons' of the account are only authorized to update the 'Reveiw Sheet'. The updation of the Review Sheet is the  next step after 'Service Info' is updated. Columns C to G, K and M to M should only be updated and rest of the columns should not be updated by 'Reviewers / QC persons'. 
+                <br/>Step 3: Review Report- The Review Report sheet is formula based and is taking inputs from Review Sheet. It is recommended that 'Reviewers / QC persons' validate the correctness of the available information but 'shall not' ' alter this sheet unless there is a specified requirement that is approved by DIA.
+                <br/> Step 4: Dashboard- This sheet is a graphical presentation of the reports which can be used for analyzing the quality performance, defect Type trends, % Accuracy Trend, Agent wise defects , Weighted defect density trend ( monthly/weekly). The graph shall not be auto updated until the data source is selected appropriately.
+                <br/>Step 5: RCA- The TOP 3 weighted defects will get auto-populated. It is essential that RCA ( Root Cause Analysis) is done against each defect and comments are updated on the monthly basis. 
 
                 </td>
             </tr>
