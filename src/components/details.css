@@ -1,7 +1,8 @@
 .table-head{
     text-align: center;
     background-color: crimson;
-    width:100%;
+    width:103%;
+    margin-left:-16px;
 }
 
 table,tr,th,td{
@@ -12,6 +13,11 @@ table,tr,th,td{
 }
 
 th{
-    background-color: mediumslateblue;
+    background-color:#008080;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#fff;
+}
+
+td{
+    font-family:monospace;
 }

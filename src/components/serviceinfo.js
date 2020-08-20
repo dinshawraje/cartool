@@ -85,10 +85,10 @@ class ServiceInfo extends Component{
         }
     
     return(
-        <div>
+        <div className="backgroundStyle">
             <DetailsSubmit yearPicked={yearPicked} duOptions={duOptions} locationOptions={locationOptions} isSubmit = {isSubmit} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager}/>
             {forms}
-            <div className="buttonstyle">
+            <div className="submitButton">
             {button}
             </div>
         </div>
@@ -236,7 +236,7 @@ handleYearChange(date) {
 }
 
 function NoDetails(){
-  return <h4>No details submitted yet!</h4>
+  return null;
 }
 
   function DetailsSubmit(props){

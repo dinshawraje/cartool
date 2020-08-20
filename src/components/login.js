@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ServiceInfo from './serviceinfo';
+import './login.css';
 
 class Login extends Component{
     constructor(props){
@@ -61,7 +62,7 @@ class Login extends Component{
         }
     
     return(
-        <div>
+        <div  className="headerStyle">
             <Greeting isLoggedIn = {isLoggedIn} userName={userName}/>
             {forms}
             <div className="buttonstyle">
@@ -75,13 +76,13 @@ class Login extends Component{
 
 function UserGreeting(props){
     return <div>
-        <h1>Welcome {props.userName}!</h1>
+        <h1 className="greetingstyle2">Welcome {props.userName}!</h1>
         <ServiceInfo UserName = {props.userName}/>
     </div>
 }
 
 function GuestGreeting(props){
-    return <h1>Please Log In</h1>
+    return <h1 className="greetingstyle1">Please Log In</h1>
 }
 
 class Forms extends Component{
@@ -121,13 +122,13 @@ function Greeting(props){
 
 function LoginButton(props){
     return(
-        <button onClick = {props.onClick}>Login</button>
+        <button className="button3" onClick = {props.onClick}>Login</button>
     );
 }
 
 function LogoutButton(props){
     return(
-       <button onClick = {props.onClick}>Logout</button>
+       <button className="button3" onClick = {props.onClick}>Logout</button>
     );
 }
 

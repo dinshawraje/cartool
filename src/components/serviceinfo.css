@@ -1,17 +1,15 @@
 form{
     width:50%;
     margin-left:110px;
-}
-
-.buttonstyle{
-    margin-left:250px;
-    margin-top:20px;
+    
 }
 
 .quality{
     margin-left:30px;
     font-family:'Lucida Sans Unicode';
     font-size:1.2em;
+    color:#fff;
+    margin-top:20px;
 }
 
 .deliveryunit{
@@ -25,8 +23,11 @@ form{
 }
 
 .serviceInfo{
-    margin-left:500px;
+    margin-left:35%;
     align-content: center;
+    margin-bottom: 30px;
+    font-family:American Typewriter, serif;
+    color:#fff;
 }
 
 .mname{
@@ -95,10 +96,24 @@ form{
         margin-left:30px;
         font-family:'Lucida Sans Unicode';
         font-size:1.2em;
+        color:#fff;
     }
 
     .yearhead{
         margin-top:20px;
         font-family:'Lucida Sans Unicode';
         font-size:1.2em;
+        color:#fff;
     }
+    
+    .backgroundStyle{
+        background-image: linear-gradient(to right, #CC95C0 0%, #DBD4B4 30%,#7AA1D2 70%);
+        width:80%;
+        margin-left:10%;
+    }
+
+   .submitButton{
+       margin-left:22%;
+       width: 150%;
+       margin-bottom:5%;
+   }

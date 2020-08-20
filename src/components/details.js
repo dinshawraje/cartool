@@ -8,17 +8,7 @@ import './details.css';
 class DetailsForm extends Component{
     render(){
         return(
-            <div>
-            {/* <h1>Here are details from service info form:_</h1>
-            <h2>Service Name:-{this.props.serviceName}</h2>
-            <h2>Service Manager:-{this.props.serviceManager}</h2>
-            <h2>Account Name:-{this.props.accountName}</h2>
-            <h2>Delivery Manager:-{this.props.deliveryManager}</h2>
-            <h2>Location:-{this.props.locationOptions}</h2>
-            <h2>Delivery Unit:-{this.props.duOptions}</h2>
-            <h2>Year:-{this.props.yearPicked}</h2> */}
-
-            {/* */}
+            <div>         
            <Container>
                <Row>
                    <Col md={12}>
@@ -95,7 +85,7 @@ class DetailsForm extends Component{
             <tr>
                 <td>
                 Rational Subgrouping, segmentation should be done for selecting sample size for the incident/service Request review etc. For Example: Sample Size and Frequency = Subgrouping of Sample size is done on the basis of below 7 pts:
-                <br/>1. 100%= P1/P2 incidents (Frequency- Weekly)
+                <br/>1.100%= P1/P2 incidents (Frequency- Weekly)
                 <br/>2. 50% =  P3/P4  Incidents (Frequency- Weekly)
                 <br/>3. 100% = Problem Records (Frequency- As and when problem record is resolved)
                <br/> 5. 100% = CR(Frequency- As and when CR  is  received from SAFEMOVE)
@@ -115,17 +105,17 @@ class DetailsForm extends Component{
             </tr>
             <tr>
                 <td>
-                   Dinshaw Raje
+                   Agent 1
                 </td>
             </tr>
             <tr>
                 <td>
-                    Rachita Singhal
+                    Agent 2
                 </td>
             </tr>
             <tr>
                 <td>
-                    Manish Pandey
+                    Agent 3
                 </td>
             </tr>
         </table>
@@ -139,17 +129,17 @@ class DetailsForm extends Component{
             </tr>
             <tr>
                 <td>
-                   Gulshan Kumar
+                   Reviewer 1
                 </td>
             </tr>
             <tr>
                 <td>
-                    Dhruv Sharma
+                    Reviewer 2
                 </td>
             </tr>
             <tr>
                 <td>
-                    Manish Srivastava
+                    Reviewer 3
                 </td>
             </tr>
         </table>
