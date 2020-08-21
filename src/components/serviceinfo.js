@@ -7,11 +7,17 @@ import YearPicker from "react-year-picker";
 import DetailsForm from './details.js';  
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'react-bootstrap';
+import {Redirect, Link} from 'react-router-dom'
 
 class ServiceInfo extends Component{
-    constructor(props){
-        super(props);
-        this.state = {yearPicked:'',duOptions:'',locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
+    constructor(){
+        super();
+        const token = localStorage.getItem("token");
+        let loggedIn = true
+        if (token ==null) {
+          loggedIn= false
+        }
+        this.state = {loggedIn, yearPicked:'', duOptions:'', locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
         this.handleServiceName = this.handleServiceName.bind(this);
         this.handleServiceManager = this.handleServiceManager.bind(this);
         this.handleAccountName = this.handleAccountName.bind(this);
@@ -20,6 +26,7 @@ class ServiceInfo extends Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleDuChange = this.handleDuChange.bind(this);
         this.handleYearChange = this.handleYearChange.bind(this);
+        
     }
     handleChange(locationOptions){
       this.setState({locationOptions:locationOptions});
@@ -67,6 +74,9 @@ class ServiceInfo extends Component{
        }
     render()
     {
+      if (this.state.loggedIn ===false) {
+        return <Redirect to="/" />
+      }
         const isSubmit = this.state.isSubmit;
         const serviceName = this.state.serviceName;
         const serviceManager = this.state.serviceManager;
@@ -75,6 +85,8 @@ class ServiceInfo extends Component{
         const locationOptions = this.state.locationOptions;
         const duOptions = this.state.duOptions;
         const yearPicked = this.state.yearPicked;
+        // const userName = "dinshaw";
+        const userName = this.props.location ? this.props.location.state.username : "Dinsahw";
         let button;
         let forms;
         if(isSubmit){
@@ -83,12 +95,12 @@ class ServiceInfo extends Component{
         }
         else{ 
             button = <SubmitButton onClick={this.handleSubmitClick}/>;
-            forms = <ServiceInfoForm yearPicked={yearPicked} duOptions={duOptions} locationOptions={locationOptions} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager} onSnameChange={this.handleServiceName} onSmanagerChange={this.handleServiceManager} onAnameChange={this.handleAccountName} onDmanagerChange={this.handleDeliveryManager} onLocationChange={this.handleChange} onDuChange={this.handleDuChange} onYearChange={this.handleYearChange} onSubmit={this.handleSubmitClick}/>;
+            forms = <ServiceInfoForm yearPicked={yearPicked} userName={userName} duOptions={duOptions} locationOptions={locationOptions} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager} onSnameChange={this.handleServiceName} onSmanagerChange={this.handleServiceManager} onAnameChange={this.handleAccountName} onDmanagerChange={this.handleDeliveryManager} onLocationChange={this.handleChange} onDuChange={this.handleDuChange} onYearChange={this.handleYearChange} onSubmit={this.handleSubmitClick}/>;
         }
     
     return(
         <div className="backgroundStyle">
-            <DetailsSubmit yearPicked={yearPicked} duOptions={duOptions} locationOptions={locationOptions} isSubmit = {isSubmit} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager}/>
+            <DetailsSubmit yearPicked={yearPicked} userName={userName} duOptions={duOptions} locationOptions={locationOptions} isSubmit = {isSubmit} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager}/>
             {forms}
             <div className="submitButton">
             {button}
@@ -137,10 +149,11 @@ handleYearChange(date) {
     this.props.onDmanagerChange(e.target.value);
 }
     render(){
-      
-     
       return(
         <div>
+          <h1 className="greetingstyle2">Welcome {this.props.userName} !</h1>
+          <Link to= "/logout"> Logout</Link>
+
         <h1 className="serviceInfo"> Service Info Page</h1>
          <MDBContainer>
          <MDBRow>
