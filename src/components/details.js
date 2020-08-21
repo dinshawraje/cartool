@@ -8,7 +8,7 @@ import './details.css';
 class DetailsForm extends Component{
     render(){
         return(
-            <div>         
+            <div className="backgroundStyle">       
            <Container>
                <Row>
                    <Col md={12}>
@@ -28,7 +28,7 @@ class DetailsForm extends Component{
                     Year
                 </th>
                 <td>
-                   {this.props.yearPicked}
+                   {this.props.location.state.yearPicked}
                 </td>
                 </tr>
                 <tr>
@@ -36,13 +36,13 @@ class DetailsForm extends Component{
                     Delivery Unit(DU)
                 </th>
                 <td>
-                   {this.props.duOptions}
+                   {this.props.location.state.duOptions}
                 </td>
                 <th>
                     Account Name
                 </th>
                 <td>
-                  {this.props.accountName}
+                  {this.props.location.state.accountName}
                 </td>
                 </tr>
                 <tr>
@@ -50,13 +50,13 @@ class DetailsForm extends Component{
                     Service Name( In Scope )
                 </th>
                 <td>
-                  {this.props.serviceName}
+                  {this.props.location.state.serviceName}
                 </td>
                 <th>
                     Location
                 </th>
                 <td>
-                  {this.props.locationOptions}
+                  {this.props.location.state.locationOptions}
                 </td>
                 </tr>
                 <tr>
@@ -64,13 +64,13 @@ class DetailsForm extends Component{
                     Service Manager/Service Lead
                 </th>
                 <td>
-                  {this.props.serviceManager}
+                  {this.props.location.state.serviceManager}
                 </td>
                 <th>
                     Delivery Manager
                 </th>
                 <td>
-                  {this.props.deliveryManager}
+                  {this.props.location.state.deliveryManager}
                 </td>
                 </tr>
             </table>

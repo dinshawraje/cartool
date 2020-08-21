@@ -1,17 +1,16 @@
 import React,{Component} from 'react';
-import { MDBContainer, MDBRow, MDBCol,MDBBtn, MDBInput,MDBIcon } from 'mdbreact';
+import {MDBBtn, MDBInput,MDBIcon } from 'mdbreact';
 import QualityRange from './qualityrange';
 import 'mdbreact/dist/css/mdb.css';
 import './serviceinfo.css';
-import YearPicker from "react-year-picker";
-import DetailsForm from './details.js';  
+import YearPicker from "react-year-picker"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'react-bootstrap';
 
 class ServiceInfo extends Component{
-    constructor(props){
-        super(props);
-        this.state = {yearPicked:'',duOptions:'',locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
+    constructor(){
+        super();
+        this.state = {yearPicked:'', duOptions:'', locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
         this.handleServiceName = this.handleServiceName.bind(this);
         this.handleServiceManager = this.handleServiceManager.bind(this);
         this.handleAccountName = this.handleAccountName.bind(this);
@@ -37,6 +36,10 @@ class ServiceInfo extends Component{
         this.setState({
             isSubmit:true,
         });
+        this.props.history.push({
+          pathname: '/details',
+          state: { yearPicked:this.state.yearPicked,userName:this.state.userName,duOptions:this.state.duOptions,locationOptions:this.state.locationOptions,serviceName:this.state.serviceName,serviceManager:this.state.serviceManager,accountName:this.state.accountName,deliveryManager:this.state.deliveryManager} }
+        );
     }
     
     
@@ -75,6 +78,8 @@ class ServiceInfo extends Component{
         const locationOptions = this.state.locationOptions;
         const duOptions = this.state.duOptions;
         const yearPicked = this.state.yearPicked;
+        const userName = this.props.location.state.username;
+        console.log(userName);
         let button;
         let forms;
         if(isSubmit){
@@ -83,16 +88,18 @@ class ServiceInfo extends Component{
         }
         else{ 
             button = <SubmitButton onClick={this.handleSubmitClick}/>;
-            forms = <ServiceInfoForm yearPicked={yearPicked} duOptions={duOptions} locationOptions={locationOptions} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager} onSnameChange={this.handleServiceName} onSmanagerChange={this.handleServiceManager} onAnameChange={this.handleAccountName} onDmanagerChange={this.handleDeliveryManager} onLocationChange={this.handleChange} onDuChange={this.handleDuChange} onYearChange={this.handleYearChange} onSubmit={this.handleSubmitClick}/>;
+            forms = <ServiceInfoForm yearPicked={yearPicked} userName={userName} duOptions={duOptions} locationOptions={locationOptions} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager} onSnameChange={this.handleServiceName} onSmanagerChange={this.handleServiceManager} onAnameChange={this.handleAccountName} onDmanagerChange={this.handleDeliveryManager} onLocationChange={this.handleChange} onDuChange={this.handleDuChange} onYearChange={this.handleYearChange} onSubmit={this.handleSubmitClick}/>;
         }
     
     return(
+        <div>
+          <h1 className="greetingstyle2">Welcome {userName}!</h1>
         <div className="backgroundStyle">
-            <DetailsSubmit yearPicked={yearPicked} duOptions={duOptions} locationOptions={locationOptions} isSubmit = {isSubmit} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager}/>
             {forms}
             <div className="submitButton">
             {button}
             </div>
+        </div>
         </div>
     );
     }
@@ -137,16 +144,11 @@ handleYearChange(date) {
     this.props.onDmanagerChange(e.target.value);
 }
     render(){
-      
-     
       return(
         <div>
         <h1 className="serviceInfo"> Service Info Page</h1>
-         <MDBContainer>
-         <MDBRow>
-           <MDBCol>
           <form>
-            <p className="h4">Provide the below details:</p>
+            <p className="h4" style={{marginBottom:"-10px;"}}>Provide the below details:</p>
             <div className="grey-text">
               <Container>
               <Row>
@@ -227,34 +229,13 @@ handleYearChange(date) {
                </Col>
              </Row>
              </Container>
-              
-            </div>
-            
+            </div> 
           </form>
-    </MDBCol>  
-          </MDBRow>
-  </MDBContainer>
        </div>
       )
     };
   }
-  function DetailsForms(props){
-    return <div>
-        <DetailsForm yearPicked={props.yearPicked} duOptions={props.duOptions} locationOptions={props.locationOptions} serviceName = {props.serviceName} serviceManager={props.serviceManager} accountName={props.accountName} deliveryManager={props.deliveryManager}/>
-    </div>
-}
 
-function NoDetails(){
-  return null;
-}
-
-  function DetailsSubmit(props){
-    const isSubmit = props.isSubmit;
-    if(isSubmit){
-        return <DetailsForms yearPicked={props.yearPicked} duOptions={props.duOptions} locationOptions={props.locationOptions} serviceName = {props.serviceName} serviceManager={props.serviceManager} accountName={props.accountName} deliveryManager={props.deliveryManager} />
-    }
-    return <NoDetails/>
-  }
 
 function SubmitButton(props){
     return(

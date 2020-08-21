@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import ServiceInfo from './serviceinfo';
 import './login.css';
 
+
 class Login extends Component{
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state = {isLoggedIn:false, username : '',
         password : '',opened:true};
        
@@ -20,6 +20,10 @@ class Login extends Component{
             isLoggedIn:true,
             opened: !opened
         });
+        this.props.history.push({
+            pathname: '/serviceinfo',
+            state: { username: this.state.username }
+          });
     }
 
     handleLogoutClick()
@@ -52,18 +56,17 @@ class Login extends Component{
         let forms;
 
         if(isLoggedIn && !opened){
-            button = <LogoutButton onClick={this.handleLogoutClick}/>;
             forms = null;
         }
         else{
             
-            button = <LoginButton className="buttonstyle" onClick={this.handleLoginClick}/>;
+            button = <LoginButton onClick={this.handleLoginClick}/>;
             forms = <Forms userName = {userName} passWord = {passWord} onUserChange = {this.handleUsername} onPassChange = {this.handlePassword}/>;
         }
     
     return(
-        <div  className="headerStyle">
-            <Greeting isLoggedIn = {isLoggedIn} userName={userName}/>
+        <div className="headerStyle">
+            <h1 className="greetingstyle1">Please Log In</h1>
             {forms}
             <div className="buttonstyle">
             {button}
@@ -72,18 +75,6 @@ class Login extends Component{
     );
     }
 }  
-
-
-function UserGreeting(props){
-    return <div>
-        <h1 className="greetingstyle2">Welcome {props.userName}!</h1>
-        <ServiceInfo UserName = {props.userName}/>
-    </div>
-}
-
-function GuestGreeting(props){
-    return <h1 className="greetingstyle1">Please Log In</h1>
-}
 
 class Forms extends Component{
 
@@ -100,7 +91,7 @@ handlePassword(e){
     this.props.onPassChange(e.target.value);
 }
 render(){
-    return( <div>
+    return( <div style={{marginLeft:10+'em'}}>
                   <form>
                      <label>Username: </label>
                      <input type="text" value={this.props.userName} onChange={this.handleUsername}/>
@@ -112,13 +103,6 @@ render(){
     );
     }
 }
-function Greeting(props){
-    const isLoggedIn = props.isLoggedIn;
-    if(isLoggedIn){
-        return <UserGreeting userName={props.userName}/>
-    }
-    return <GuestGreeting userName={props.userName}/>
-}
 
 function LoginButton(props){
     return(
@@ -126,10 +110,5 @@ function LoginButton(props){
     );
 }
 
-function LogoutButton(props){
-    return(
-       <button className="button3" onClick = {props.onClick}>Logout</button>
-    );
-}
 
 export default Login;
