@@ -5,6 +5,8 @@ import 'mdbreact/dist/css/mdb.css';
 import './serviceinfo.css';
 import YearPicker from "react-year-picker";
 import DetailsForm from './details.js';  
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Row, Col, Container} from 'react-bootstrap';
 
 class ServiceInfo extends Component{
     constructor(props){
@@ -146,7 +148,10 @@ handleYearChange(date) {
           <form>
             <p className="h4">Provide the below details:</p>
             <div className="grey-text">
-              <h4 className="quality">Quality Target</h4>
+              <Container>
+              <Row>
+                <Col md={6}>
+                <h4 className="quality">Quality Target</h4>
               <span className="iconstyle"><MDBIcon icon="bullseye" size="2x"/></span><QualityRange/>
               <h4 className="quality">Delivery Unit(DU)</h4>
               <span className="iconstyle"><MDBIcon icon="truck" size="2x"/></span> <select name="duOptions" value={this.props.duOptions} onChange={this.handleDuChange} className="css-location">
@@ -181,8 +186,9 @@ handleYearChange(date) {
                 error="wrong"
                 success="right"
               />
-             
-              <div className="yearpick">
+                </Col>
+               <Col md={6} className="columnStyle">
+               <div className="yearpick">
               <h4 className="yearhead">Year</h4>
               <span className="calendarstyle"><MDBIcon icon="calendar" size="x"/></span><YearPicker value={this.props.yearPicked} onChange={this.handleYearChange} />
               </div>
@@ -218,6 +224,9 @@ handleYearChange(date) {
                 error="wrong"
                 success="right"
               />
+               </Col>
+             </Row>
+             </Container>
               
             </div>
             
