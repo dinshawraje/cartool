@@ -9,7 +9,7 @@ class DetailsForm extends Component{
         return(
             <div className="backgroundStyle">       
              <div>
-          <Link to= "/logout"  className="logoutbutton"> Logout</Link>
+          <Link to= "/logout"  className="detailLogout"> Logout</Link>
           </div>
            <Container>
                <Row>

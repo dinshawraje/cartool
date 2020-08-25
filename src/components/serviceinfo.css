@@ -134,6 +134,7 @@ form{
     cursor: pointer;
     width: 10%;
     margin-left:90%;
+    margin-top:30%;
   }
 
   .logoutbutton:hover{
