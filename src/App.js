@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Login from './components/login';
-import Logout from './components/Logout';
+import Logout from './components/logout';
 import ServiceInfo from './components/serviceinfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import DetailsForm from './components/details';
