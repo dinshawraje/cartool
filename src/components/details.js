@@ -1,24 +1,26 @@
 import React,{Component} from "react";
-// import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import "./serviceinfo.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'react-bootstrap';
 import './details.css';
+import {Link} from "react-router-dom";
 
 class DetailsForm extends Component{
     render(){
         return(
             <div className="backgroundStyle">       
+             <div>
+          <Link to= "/logout"  className="logoutbutton"> Logout</Link>
+          </div>
            <Container>
                <Row>
-                   <Col md={12}>
+                   <Col md={12} style={{marginTop:"-24px"}}>
                        <h3 className="table-head">Details from Service Info Page</h3></Col>
                </Row>
-  <Row>
-    <Col md={6}>
-    <table>
+             <Row style={{marginTop:"-10px"}}>
+              <Col md={6}>
+               <table>
                 <tr>
-                <th>
+                <th> 
                     Quality Target
                 </th>
                 <td>
@@ -166,11 +168,9 @@ class DetailsForm extends Component{
     </Col>
   </Row>
 </Container>
-            </div>
-
-        )
+</div>
+    )
     };
-   
 }
 
 export default DetailsForm;

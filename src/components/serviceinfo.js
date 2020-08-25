@@ -106,7 +106,7 @@ class ServiceInfo extends Component{
           </div>
           <h1 className="greetingstyle2">Welcome {userName}!</h1>
       
-        <div className="backgroundStyle">
+        <div className="backgroundStyle" style={{marginTop:"-1.8%"}}>
             {forms}
             <div className="submitButton">
             {button}

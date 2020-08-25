@@ -5,9 +5,11 @@ form{
     
 }
 
-body{
-    overflow-y:hidden;
-}
+@media only screen and (min-width: 1000px) and (min-height: 570px) {
+    body {
+      overflow-y:hidden;
+    }
+  }
 
 .quality{
     margin-left:30px;
@@ -118,7 +120,7 @@ body{
     }
 
    .submitButton{
-       margin-left:22%;
+       margin-left:80%;
        width: 150%;
        margin-bottom:5%;
        margin-top:-4%;
@@ -132,6 +134,12 @@ body{
     cursor: pointer;
     width: 10%;
     margin-left:90%;
+  }
+
+  .logoutbutton:hover{
+      color:white;
+      text-decoration: none;
+      box-shadow: -0.5px 2px 4px 3px #888888;
   }
 
   .columnStyle{
