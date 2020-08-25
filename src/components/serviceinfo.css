@@ -1,7 +1,12 @@
 form{
     width:90%;
-    margin-left:110px;
+    margin-left:60px;
+    margin-top:-30px;
     
+}
+
+body{
+    overflow-y:hidden;
 }
 
 .quality{
@@ -47,7 +52,7 @@ form{
 }
 
 .calendarstyle{
-    margin-left:-25px;
+    margin-left:-34px;
     float:left;
 }
 
@@ -116,6 +121,7 @@ form{
        margin-left:22%;
        width: 150%;
        margin-bottom:5%;
+       margin-top:-4%;
    }
    
    .logoutbutton {
@@ -127,3 +133,23 @@ form{
     width: 10%;
     margin-left:90%;
   }
+
+  .columnStyle{
+      margin-top:10px;
+  }
+
+  .quality1{
+    margin-left:30px;
+    font-family:'Lucida Sans Unicode';
+    font-size:1.2em;
+    color:#fff;
+    margin-top:-40px;
+}
+
+.year-input{
+    margin-top:6px !important;
+    margin-bottom:6px !important;
+    font-size:large !important;
+    color:hsl(0,0%,50%) !important;
+
+}
