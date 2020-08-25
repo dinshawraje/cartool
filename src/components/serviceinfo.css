@@ -118,3 +118,12 @@ form{
        margin-bottom:5%;
    }
    
+   .logoutbutton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    margin-left:90%;
+  }

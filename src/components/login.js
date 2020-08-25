@@ -1,114 +1,56 @@
 import React, {Component} from 'react';
 import './login.css';
+import {Redirect} from 'react-router-dom'
 
 
-class Login extends Component{
+export default class Login extends Component{
     constructor(){
-        super();
-        this.state = {isLoggedIn:false, username : '',
-        password : '',opened:true};
-       
-        this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.handleLogoutClick = this.handleLogoutClick.bind(this);
-        this.handleUsername = this.handleUsername.bind(this);
-        this.handlePassword = this.handlePassword.bind(this);
-    }
- 
-    handleLoginClick()
-    {   const {opened} = this.state;
-        this.setState({
-            isLoggedIn:true,
-            opened: !opened
-        });
-        this.props.history.push({
-            pathname: '/serviceinfo',
-            state: { username: this.state.username }
-          });
-    }
-
-    handleLogoutClick()
-    {   const {opened} = this.state;
-        this.setState({
-            isLoggedIn:false,
-            opened: !opened
-        });
-    }
-    
-    handleUsername(username){
-               this.setState({
-                   username:username
-               });
-            }
-
-    handlePassword(password){
-        this.setState(
-            {
-            password:password
-        });
-    }
-    render()
-    {
-        const isLoggedIn = this.state.isLoggedIn;
-        const { opened } = this.state;
-        const userName = this.state.username;
-        const passWord = this.state.password;
-        let button;
-        let forms;
-
-        if(isLoggedIn && !opened){
-            forms = null;
+        super()
+        this.state = {
+          username: "",
+          password: "",
+          loggedIn: false
         }
-        else{
-            
-            button = <LoginButton onClick={this.handleLoginClick}/>;
-            forms = <Forms userName = {userName} passWord = {passWord} onUserChange = {this.handleUsername} onPassChange = {this.handlePassword}/>;
-        }
+        this.onChange = this.onChange.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     
-    return(
-        <div className="headerStyle">
+      }
+      onChange(e) {
+        this.setState({
+          [e.target.name]: e.target.value
+        })
+      }
+      submitForm(e) {
+        e.preventDefault();
+        const {username, password} = this.state;
+        if((username === "rachita" && password === "12345678") || (username==="singhalr" && password==="Micro")){
+          const token = Math.random().toString(36).substr(2);
+          localStorage.setItem("token", token);
+          this.setState({
+            loggedIn: true
+          })
+        }
+      }
+      render() {
+        if(this.state.loggedIn) {
+          return <Redirect to= {{
+                pathname: '/serviceinfo',
+                state: { username: this.state.username }
+            }}/>
+        }
+        return (
+          <div>
             <h1 className="greetingstyle1">Please Log In</h1>
-            {forms}
-            <div className="buttonstyle">
-            {button}
-            </div>
-        </div>
-    );
-    }
-}  
-
-class Forms extends Component{
-
-    constructor(props){
-    super(props);
-    this.handleUsername = this.handleUsername.bind(this);
-    this.handlePassword = this.handlePassword.bind(this);
-}
-handleUsername(e){
-   this.props.onUserChange(e.target.value);
-}
-
-handlePassword(e){
-    this.props.onPassChange(e.target.value);
-}
-render(){
-    return( <div style={{marginLeft:10+'em'}}>
-                  <form>
-                     <label>Username: </label>
-                     <input type="text" value={this.props.userName} onChange={this.handleUsername}/>
-                     <br/><br/>
-                     <label>Password:&nbsp;&nbsp;</label>
-                     <input type="password" value={this.props.passWord} onChange={this.handlePassword}/>
-                  </form>
+          <form onSubmit= {this.submitForm}>
+            <label>Username: </label>
+            <input type="text" placeholder="username" name="username" value={this.state.username} onChange={this.onChange} /> <br/><br/>
+            <label>Password: </label>
+            <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.onChange} />
+    
+            <input type="submit" name="submit" value="Login" className="button3" onClick={this.onSubmit} />
+          </form>
           </div>
-    );
+        )
+      }
     }
-}
-
-function LoginButton(props){
-    return(
-        <button className="button3" onClick = {props.onClick}>Login</button>
-    );
-}
-
-
-export default Login;
+    

@@ -6,11 +6,17 @@ import './serviceinfo.css';
 import YearPicker from "react-year-picker"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'react-bootstrap';
+import {Redirect,Link} from 'react-router-dom'
 
 class ServiceInfo extends Component{
     constructor(){
         super();
-        this.state = {yearPicked:'', duOptions:'', locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
+        const token = localStorage.getItem("token");
+        let loggedIn = true
+        if (token ==null) {
+          loggedIn= false
+        }
+        this.state = {loggedIn,yearPicked:'', duOptions:'', locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
         this.handleServiceName = this.handleServiceName.bind(this);
         this.handleServiceManager = this.handleServiceManager.bind(this);
         this.handleAccountName = this.handleAccountName.bind(this);
@@ -69,7 +75,9 @@ class ServiceInfo extends Component{
           });
        }
     render()
-    {
+    {    if (this.state.loggedIn === false) {
+      return <Redirect to="/" />
+    }
         const isSubmit = this.state.isSubmit;
         const serviceName = this.state.serviceName;
         const serviceManager = this.state.serviceManager;
@@ -78,7 +86,7 @@ class ServiceInfo extends Component{
         const locationOptions = this.state.locationOptions;
         const duOptions = this.state.duOptions;
         const yearPicked = this.state.yearPicked;
-        const userName = this.props.location.state.username;
+        const userName = this.props.location ? this.props.location.state.username : "Dinshaw";
         console.log(userName);
         let button;
         let forms;
@@ -93,7 +101,11 @@ class ServiceInfo extends Component{
     
     return(
         <div>
+          <div>
+          <Link to= "/logout"  className="logoutbutton"> Logout</Link>
+          </div>
           <h1 className="greetingstyle2">Welcome {userName}!</h1>
+      
         <div className="backgroundStyle">
             {forms}
             <div className="submitButton">
