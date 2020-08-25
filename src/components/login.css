@@ -4,8 +4,10 @@ body{
     overflow-x: hidden;
 }
 
-form{
+.loginForm{
+    margin-top:1%;
     margin-left:30%;
+    width:50%;
 }
 
 label{
@@ -26,11 +28,11 @@ input[type=text], input[type=password] {
   .button3 {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
+    padding: 14px 10px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 10%;
+    width: 15%;
     margin-left:20%;
   }
 
