@@ -25,6 +25,7 @@ class ServiceInfo extends Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleDuChange = this.handleDuChange.bind(this);
         this.handleYearChange = this.handleYearChange.bind(this);
+        
     }
     handleChange(locationOptions){
       this.setState({locationOptions:locationOptions});
@@ -75,9 +76,10 @@ class ServiceInfo extends Component{
           });
        }
     render()
-    {    if (this.state.loggedIn === false) {
-      return <Redirect to="/" />
-    }
+    {
+      if (this.state.loggedIn ===false) {
+        return <Redirect to="/" />
+      }
         const isSubmit = this.state.isSubmit;
         const serviceName = this.state.serviceName;
         const serviceManager = this.state.serviceManager;
@@ -86,8 +88,8 @@ class ServiceInfo extends Component{
         const locationOptions = this.state.locationOptions;
         const duOptions = this.state.duOptions;
         const yearPicked = this.state.yearPicked;
-        const userName = this.props.location ? this.props.location.state.username : "Dinshaw";
-        console.log(userName);
+        // const userName = "dinshaw";
+        const userName = this.props.location ? this.props.location.state.username : "Dinsahw";
         let button;
         let forms;
         if(isSubmit){
@@ -158,6 +160,9 @@ handleYearChange(date) {
     render(){
       return(
         <div>
+          <h1 className="greetingstyle2">Welcome {this.props.userName} !</h1>
+          <Link to= "/logout"> Logout</Link>
+
         <h1 className="serviceInfo"> Service Info Page</h1>
           <form>
             <p className="h4" style={{marginBottom:"-10px;"}}>Provide the below details:</p>
