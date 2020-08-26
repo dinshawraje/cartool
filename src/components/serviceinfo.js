@@ -47,8 +47,7 @@ class ServiceInfo extends Component{
           pathname: '/details',
           state: { yearPicked:this.state.yearPicked,userName:this.state.userName,duOptions:this.state.duOptions,locationOptions:this.state.locationOptions,serviceName:this.state.serviceName,serviceManager:this.state.serviceManager,accountName:this.state.accountName,deliveryManager:this.state.deliveryManager} }
         );
-    }
-    
+    }    
     
     handleServiceName(serviceName){
                this.setState({
@@ -88,8 +87,7 @@ class ServiceInfo extends Component{
         const locationOptions = this.state.locationOptions;
         const duOptions = this.state.duOptions;
         const yearPicked = this.state.yearPicked;
-        // const userName = "dinshaw";
-        const userName = this.props.location ? this.props.location.state.username : "Dinsahw";
+        const userName = this.props.location.state ? this.props.location.state.username : "Dinsahw";
         let button;
         let forms;
         if(isSubmit){
