@@ -160,9 +160,6 @@ handleYearChange(date) {
     render(){
       return(
         <div>
-          <h1 className="greetingstyle2">Welcome {this.props.userName} !</h1>
-          <Link to= "/logout"> Logout</Link>
-
         <h1 className="serviceInfo"> Service Info Page</h1>
           <form>
             <p className="h4" style={{marginBottom:"-10px;"}}>Provide the below details:</p>

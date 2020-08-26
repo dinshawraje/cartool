@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 import Login from './components/login';
-import Logout from './components/logout';
 import ServiceInfo from './components/serviceinfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import DetailsForm from './components/details';
-import logout from './components/Logout';
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
         <Route path="/logout" component={Logout} />
         <Route exact path="/serviceinfo" component={ServiceInfo}/>
         <Route exact path="/details" component={DetailsForm}/>
-        <Route exact path="/Logout" component={logout}/>
+        <Route exact path="/Logout" component={Logout}/>
         </Switch>
       </Router>
     </div>
