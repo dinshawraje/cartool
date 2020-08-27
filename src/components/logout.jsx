@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default class Logout extends Component {
     constructor() {
         super() 
-        localStorage.removeItem("token");        
+        localStorage.removeItem("token");     
     }
     render() {
         return (
