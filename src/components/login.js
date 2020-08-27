@@ -23,7 +23,7 @@ export default class Login extends Component{
       submitForm(e) {
         e.preventDefault();
         const {username, password} = this.state;
-        if(username === "rachita" && password === "12345678"){
+        if((username === "rachita" && password === "12345678") || (username==="singhalr" && password==="Micro")){
           const token = Math.random().toString(36).substr(2);
           localStorage.setItem("token", token);
           this.setState({
@@ -41,13 +41,13 @@ export default class Login extends Component{
         return (
           <div>
             <h1 className="greetingstyle1">Please Log In</h1>
-          <form onSubmit= {this.submitForm}>
+          <form onSubmit= {this.submitForm}  className="loginForm">
             <label>Username: </label>
             <input type="text" placeholder="username" name="username" value={this.state.username} onChange={this.onChange} /> <br/><br/>
             <label>Password: </label>
             <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.onChange} />
     
-            <input type="submit" name="submit" value="Login" className="login-button" />
+            <input type="submit" name="submit" value="Login" className="button3" onClick={this.onSubmit} />
           </form>
           </div>
         )

@@ -1,3 +1,4 @@
+
 .table-head{
     text-align: center;
     background-color: crimson;
@@ -21,3 +22,20 @@ th{
 td{
     font-family:monospace;
 }
+
+.detailLogout {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    margin-left:103%;
+    
+  }
+
+  .detailLogout:hover{
+      color:white;
+      text-decoration: none;
+      box-shadow: -0.5px 2px 4px 3px #888888;
+  }

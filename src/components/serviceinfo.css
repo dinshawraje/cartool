@@ -1,8 +1,15 @@
 form{
-    width:50%;
-    margin-left:110px;
+    width:90%;
+    margin-left:60px;
+    margin-top:-30px;
     
 }
+
+@media only screen and (min-width: 1000px) and (min-height: 570px) {
+    body {
+      overflow-y:hidden;
+    }
+  }
 
 .quality{
     margin-left:30px;
@@ -39,6 +46,9 @@ form{
     margin-top:-20px;
     margin-left:30px;
 }
+.year-picker{
+    z-index: 1;
+}
 
 .iconstyle{
     margin-right:5px;
@@ -47,7 +57,7 @@ form{
 }
 
 .calendarstyle{
-    margin-left:-25px;
+    margin-left:-34px;
     float:left;
 }
 
@@ -113,8 +123,45 @@ form{
     }
 
    .submitButton{
-       margin-left:22%;
+       margin-left:80%;
        width: 150%;
        margin-bottom:5%;
+       margin-top:-4%;
    }
    
+   .logoutbutton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    margin-left:90%;
+    margin-top:30%;
+  }
+
+  .logoutbutton:hover{
+      color:white;
+      text-decoration: none;
+      box-shadow: -0.5px 2px 4px 3px #888888;
+  }
+
+  .columnStyle{
+      margin-top:10px;
+  }
+
+  .quality1{
+    margin-left:30px;
+    font-family:'Lucida Sans Unicode';
+    font-size:1.2em;
+    color:#fff;
+    margin-top:-40px;
+}
+
+.year-input{
+    margin-top:6px !important;
+    margin-bottom:6px !important;
+    font-size:large !important;
+    color:hsl(0,0%,50%) !important;
+
+}

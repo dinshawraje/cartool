@@ -1,13 +1,12 @@
 import React,{Component} from 'react';
-import { MDBContainer, MDBRow, MDBCol,MDBBtn, MDBInput,MDBIcon } from 'mdbreact';
+import {MDBBtn, MDBInput,MDBIcon } from 'mdbreact';
 import QualityRange from './qualityrange';
 import 'mdbreact/dist/css/mdb.css';
 import './serviceinfo.css';
-import YearPicker from "react-year-picker";
-import DetailsForm from './details.js';  
+import YearPicker from "react-year-picker"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'react-bootstrap';
-import {Redirect, Link} from 'react-router-dom'
+import {Redirect,Link} from 'react-router-dom'
 
 class ServiceInfo extends Component{
     constructor(){
@@ -17,7 +16,7 @@ class ServiceInfo extends Component{
         if (token ==null) {
           loggedIn= false
         }
-        this.state = {loggedIn, yearPicked:'', duOptions:'', locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
+        this.state = {loggedIn,yearPicked:'', duOptions:'', locationOptions: '',isSubmit:false,serviceName:'',serviceManager:'',accountName:'',deliveryManager:''};
         this.handleServiceName = this.handleServiceName.bind(this);
         this.handleServiceManager = this.handleServiceManager.bind(this);
         this.handleAccountName = this.handleAccountName.bind(this);
@@ -44,8 +43,11 @@ class ServiceInfo extends Component{
         this.setState({
             isSubmit:true,
         });
-    }
-    
+        this.props.history.push({
+          pathname: '/details',
+          state: { yearPicked:this.state.yearPicked,userName:this.state.userName,duOptions:this.state.duOptions,locationOptions:this.state.locationOptions,serviceName:this.state.serviceName,serviceManager:this.state.serviceManager,accountName:this.state.accountName,deliveryManager:this.state.deliveryManager} }
+        );
+    }    
     
     handleServiceName(serviceName){
                this.setState({
@@ -85,8 +87,7 @@ class ServiceInfo extends Component{
         const locationOptions = this.state.locationOptions;
         const duOptions = this.state.duOptions;
         const yearPicked = this.state.yearPicked;
-        // const userName = "dinshaw";
-        const userName = this.props.location ? this.props.location.state.username : "Dinsahw";
+        const userName = this.props.location.state ? this.props.location.state.username : "Dinsahw";
         let button;
         let forms;
         if(isSubmit){
@@ -99,12 +100,18 @@ class ServiceInfo extends Component{
         }
     
     return(
-        <div className="backgroundStyle">
-            <DetailsSubmit yearPicked={yearPicked} userName={userName} duOptions={duOptions} locationOptions={locationOptions} isSubmit = {isSubmit} serviceName={serviceName} serviceManager={serviceManager} accountName={accountName} deliveryManager={deliveryManager}/>
+        <div>
+          <div>
+          <Link to= "/logout"  className="logoutbutton"> Logout</Link>
+          </div>
+          <h1 className="greetingstyle2">Welcome {userName}!</h1>
+      
+        <div className="backgroundStyle" style={{marginTop:"-1.8%"}}>
             {forms}
             <div className="submitButton">
             {button}
             </div>
+        </div>
         </div>
     );
     }
@@ -151,22 +158,16 @@ handleYearChange(date) {
     render(){
       return(
         <div>
-          <h1 className="greetingstyle2">Welcome {this.props.userName} !</h1>
-          <Link to= "/logout"> Logout</Link>
-
         <h1 className="serviceInfo"> Service Info Page</h1>
-         <MDBContainer>
-         <MDBRow>
-           <MDBCol>
           <form>
-            <p className="h4">Provide the below details:</p>
+            <p className="h4" style={{marginBottom:"-10px;"}}>Provide the below details:</p>
             <div className="grey-text">
               <Container>
               <Row>
                 <Col md={6}>
                 <h4 className="quality">Quality Target</h4>
               <span className="iconstyle"><MDBIcon icon="bullseye" size="2x"/></span><QualityRange/>
-              <h4 className="quality">Delivery Unit(DU)</h4>
+              <h4 className="quality1">Delivery Unit(DU)</h4>
               <span className="iconstyle"><MDBIcon icon="truck" size="2x"/></span> <select name="duOptions" value={this.props.duOptions} onChange={this.handleDuChange} className="css-location">
                 <option name="" value="">Select Delivery Unit...</option>
                      <option name="BPS" value="BPS">BPS</option>
@@ -203,7 +204,7 @@ handleYearChange(date) {
                <Col md={6} className="columnStyle">
                <div className="yearpick">
               <h4 className="yearhead">Year</h4>
-              <span className="calendarstyle"><MDBIcon icon="calendar" size="x"/></span><YearPicker value={this.props.yearPicked} onChange={this.handleYearChange} />
+              <span className="calendarstyle"><MDBIcon icon="calendar" size="2x"/></span><YearPicker value={this.props.yearPicked} onChange={this.handleYearChange} />
               </div>
              
               <h4 className="lochead">Location</h4>
@@ -240,34 +241,13 @@ handleYearChange(date) {
                </Col>
              </Row>
              </Container>
-              
-            </div>
-            
+            </div> 
           </form>
-    </MDBCol>  
-          </MDBRow>
-  </MDBContainer>
        </div>
       )
     };
   }
-  function DetailsForms(props){
-    return <div>
-        <DetailsForm yearPicked={props.yearPicked} duOptions={props.duOptions} locationOptions={props.locationOptions} serviceName = {props.serviceName} serviceManager={props.serviceManager} accountName={props.accountName} deliveryManager={props.deliveryManager}/>
-    </div>
-}
 
-function NoDetails(){
-  return null;
-}
-
-  function DetailsSubmit(props){
-    const isSubmit = props.isSubmit;
-    if(isSubmit){
-        return <DetailsForms yearPicked={props.yearPicked} duOptions={props.duOptions} locationOptions={props.locationOptions} serviceName = {props.serviceName} serviceManager={props.serviceManager} accountName={props.accountName} deliveryManager={props.deliveryManager} />
-    }
-    return <NoDetails/>
-  }
 
 function SubmitButton(props){
     return(

@@ -1,24 +1,26 @@
 import React,{Component} from "react";
-// import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import "./serviceinfo.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'react-bootstrap';
 import './details.css';
+import {Link} from "react-router-dom";
 
 class DetailsForm extends Component{
     render(){
         return(
-            <div>         
+            <div className="backgroundStyle">       
+             <div>
+          <Link to= "/logout"  className="detailLogout"> Logout</Link>
+          </div>
            <Container>
                <Row>
-                   <Col md={12}>
+                   <Col md={12} style={{marginTop:"-24px"}}>
                        <h3 className="table-head">Details from Service Info Page</h3></Col>
                </Row>
-  <Row>
-    <Col md={6}>
-    <table>
+             <Row style={{marginTop:"-10px"}}>
+              <Col md={6}>
+               <table>
                 <tr>
-                <th>
+                <th> 
                     Quality Target
                 </th>
                 <td>
@@ -28,7 +30,7 @@ class DetailsForm extends Component{
                     Year
                 </th>
                 <td>
-                   {this.props.yearPicked}
+                   {this.props.location.state.yearPicked}
                 </td>
                 </tr>
                 <tr>
@@ -36,13 +38,13 @@ class DetailsForm extends Component{
                     Delivery Unit(DU)
                 </th>
                 <td>
-                   {this.props.duOptions}
+                   {this.props.location.state.duOptions}
                 </td>
                 <th>
                     Account Name
                 </th>
                 <td>
-                  {this.props.accountName}
+                  {this.props.location.state.accountName}
                 </td>
                 </tr>
                 <tr>
@@ -50,13 +52,13 @@ class DetailsForm extends Component{
                     Service Name( In Scope )
                 </th>
                 <td>
-                  {this.props.serviceName}
+                  {this.props.location.state.serviceName}
                 </td>
                 <th>
                     Location
                 </th>
                 <td>
-                  {this.props.locationOptions}
+                  {this.props.location.state.locationOptions}
                 </td>
                 </tr>
                 <tr>
@@ -64,13 +66,13 @@ class DetailsForm extends Component{
                     Service Manager/Service Lead
                 </th>
                 <td>
-                  {this.props.serviceManager}
+                  {this.props.location.state.serviceManager}
                 </td>
                 <th>
                     Delivery Manager
                 </th>
                 <td>
-                  {this.props.deliveryManager}
+                  {this.props.location.state.deliveryManager}
                 </td>
                 </tr>
             </table>
@@ -166,11 +168,9 @@ class DetailsForm extends Component{
     </Col>
   </Row>
 </Container>
-            </div>
-
-        )
+</div>
+    )
     };
-   
 }
 
 export default DetailsForm;
