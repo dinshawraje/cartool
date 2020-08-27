@@ -4,7 +4,7 @@ import Login from './components/login';
 import ServiceInfo from './components/serviceinfo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import DetailsForm from './components/details';
-import Logout from './components/Logout';
+import Logout from './components/logout';
 
 function App() {
   return (
