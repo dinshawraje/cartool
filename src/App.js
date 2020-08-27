@@ -15,7 +15,7 @@ function App() {
         <Route path="/logout" component={Logout} />
         <Route exact path="/serviceinfo" component={ServiceInfo}/>
         <Route exact path="/details" component={DetailsForm}/>
-        <Route exact path="/Logout" component={Logout}/>
+        <Route exact path="/logout" component={Logout}/>
         </Switch>
       </Router>
     </div>
