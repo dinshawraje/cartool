@@ -16,10 +16,10 @@ class DetailsForm extends Component{
         this.state = {
           newUser: {
             
-            skills: [{
-              category: "",
-              techSkill: "",
-              rating: ""
+            defects: [{
+              defectCode: "",
+              lifeCycle: "",
+              impacted: ""
             }],
           },
     
@@ -48,26 +48,17 @@ class DetailsForm extends Component{
       type: 'ADD_EMP',
       data,
     });
-    this.props.history.push({
-      pathname: '/emp/'+[data.empId],
-      state: { detail: data }
-    })
+    
   }
 
   handleClearForm(e) {
     e.preventDefault();
     this.setState({
       newUser: {
-        empId: 0,
-        name: '',
-        email: '',
-        du: "",
-        project: "",
-        domain: "",
-        skills: [{
-          category: "",
-          techSkill: "",
-          rating: ""
+        defects: [{
+          defectCode: "",
+          lifeCycle: "",
+          impacted: ""
         }],
       },
     })
@@ -78,9 +69,9 @@ class DetailsForm extends Component{
     this.setState(prevState => ({
       newUser:
       {
-        ...prevState.newUser, skills: this.state.newUser.skills.concat([{
-          techSkill: [],
-          rating: []
+        ...prevState.newUser, defects: this.state.newUser.defects.concat([{
+          lifeCycle: [],
+          impacted: []
         }])
       }
     }), () => console.log(this.state.newUser))
@@ -89,7 +80,7 @@ class DetailsForm extends Component{
   handleRemoveSkill = idx => () => {
     this.setState({
       newUser: {
-        skills: this.state.newUser.skills.filter((s, sidx) => idx !== sidx)
+        defects: this.state.newUser.defects.filter((s, sidx) => idx !== sidx)
       }
     });
   }
@@ -97,14 +88,14 @@ class DetailsForm extends Component{
   handleSkillInput = idx => (selectedOption, nameOfComponent) => {
     console.log(this.state.newUser)
     // const { name, value } = evt.target
-    const newSkills = this.state.newUser.skills.map((skill, sidx) => {
+    const newdefects = this.state.newUser.defects.map((skill, sidx) => {
       if (idx !== sidx) return skill;
       return { ...skill, [nameOfComponent.name]: selectedOption };
     });
     this.setState(prevState => ({
       newUser:
       {
-        ...prevState.newUser, skills: newSkills
+        ...prevState.newUser, defects: newdefects
       }
     }), () => console.log(this.state.newUser))
 
@@ -121,9 +112,9 @@ class DetailsForm extends Component{
   };
     
     render(){
-        const categoryOptions = require('../data/categoryOptions.json');
-        const techSkillOption = require('../data/techSkillOptions.json');
-        const ratingOption = require('../data/ratingOptions.json');
+        const defectCodeOptions = require('../data/defectCodeOptions.json');
+        const lifeCycleOptions = require('../data/lifeCycleOptions.json');
+        const impactedOptions = require('../data/impactedOptions.json');
     
         return(
             <div className="backgroundStyle">
@@ -289,40 +280,47 @@ class DetailsForm extends Component{
                 <Row>
                 <form className="container-fluid mt-5" onSubmit={this.handleFormSubmit}>
   {
-  this.state.newUser.skills.map((skill, idx) => (
+  this.state.newUser.defects.map((skill, idx) => (
   <div className="form-row">
-    <div className="form-group col-md-4">
-      <label className="form-label col-form-label"> Category  </label>
+    <div className="form-group col-md-3">
+      <label className="form-label col-form-label"> DefectCode  </label>
       <Select
-        name={'category'}
-        options={categoryOptions}
-        value={skill.category}
+        name={'defectCode'}
+        options={defectCodeOptions}
+        value={skill.defectCode}
         onChange={this.handleSkillInput(idx)}
         />{/* Domain Selection */}
     </div>
-    <div className="form-group col-md-4">
-      <label className="form-label col-form-label "> Skill  </label>
+    <div className="form-group col-md-3">
+      <label className="form-label col-form-label "> LifeCycle Phase  </label>
       <Select
-      name={'techSkill'}
-      options={(skill.category) ? (techSkillOption.filter((o) => o.link === skill.category.value)) : techSkillOption}
-      value={skill.techSkill}
+      name={'lifeCycle'}
+      options={(skill.defectCode) ? (lifeCycleOptions.filter((o) => o.link === skill.defectCode.value)) : lifeCycleOptions}
+      value={skill.lifeCycle}
       onChange={this.handleSkillInput(idx)}
       />
     </div>
     <div className="form-group col-md-2">
-      <label className="form-label col-form-label"> Rating  </label>
+      <label className="form-label col-form-label"> Defects  </label>
       <Select
-        name={'rating'}
-        options={ratingOption}
-        value={skill.rating}
+        name={'impacted'}
+        options={impactedOptions}
+        value={skill.impacted}
         onChange={this.handleSkillInput(idx)}
         />
     </div>
+    <div className="form-group col-md-2">
+    <label className="form-label col-form-label">Example</label>
+    <textarea  rows="2"></textarea>
+  </div>
+
     <div className="form-group col-md-2">
       <Button
         action={this.handleRemoveSkill(idx)}
         type={'btn btn-danger form-control'}
         title={'remove'}
+        style={buttonStyle}
+
         />
     </div>
   </div>
@@ -331,7 +329,7 @@ class DetailsForm extends Component{
   <Button
   action={this.handleAddSkill}
   type={'btn btn-primary'}
-  title={'Add Skills'}
+  title={'Add defects'}
   /> { /*Submit */}
   <br />
   <div className='text-center'>
@@ -352,5 +350,9 @@ class DetailsForm extends Component{
     )
     };
 }
+const buttonStyle = {
+  marginTop : '35px'
+}
+
 
 export default DetailsForm;
