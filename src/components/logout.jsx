@@ -5,7 +5,7 @@ import './logout.css'
 export default class Logout extends Component {
     constructor() {
         super() 
-        localStorage.removeItem("token");        
+        localStorage.removeItem("token");     
     }
     render() {
         return (
