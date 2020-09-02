@@ -160,7 +160,7 @@ handleYearChange(date) {
         <div>
         <h1 className="serviceInfo"> Service Info Page</h1>
           <form>
-            <p className="h4" style={{marginBottom:"-10px;"}}>Provide the below details:</p>
+            <p className="h4" style={{marginBottom:"-10px"}}>Provide the below details:</p>
             <div className="grey-text">
               <Container>
               <Row>

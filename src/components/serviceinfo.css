@@ -5,11 +5,11 @@ form{
     
 }
 
-@media only screen and (min-width: 1000px) and (min-height: 570px) {
+/* @media only screen and (min-width: 1000px) and (min-height: 570px) {
     body {
       overflow-y:hidden;
     }
-  }
+  } */
 
 .quality{
     margin-left:30px;
